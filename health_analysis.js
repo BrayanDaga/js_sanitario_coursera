@@ -74,7 +74,7 @@ function searchCondition() {
     fetch('health_analysis.json')
         .then(response => response.json())
         .then(data => {
-            const condition = data.conditions.find(item => item.name.toLowerCase() === input);
+            const condition = data.conditions.find(item => item.name.toLowerCase().includes(input) );
 
             if (condition) {
                 const symptoms = condition.symptoms.join(', ');
